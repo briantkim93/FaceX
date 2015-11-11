@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+
+        <style type="text/css">
+
+            .face-ul
+            {
+                list-style-type: none;
+            }
+            .face-ul li
+            {
+                padding-left: 10px;
+                padding-top: 7px;
+                float: left;
+            }
+            .img
+            {
+                position: relative;
+            }
+
+        </style>
+
+    </head>
+    <body>
+        <table><tr>
+                <td style="vertical-align: top;">
+                    <table style="border-right: 1px solid #959595"><tr>
+                            <td style="width: 400px; height: 400px; vertical-align: top;">
+                                <div style="border-bottom: 1px solid #999999; text-align: center"><h4 style="color: #5e5e5e">retrieved faces</h4></div>
+                                <ul id="retrieved-faces-ul" class="face-ul">
+                                  <li><p>No faces detected in the photos</p></li>
+                                </ul>
+                            </td></tr>
+                    </table>
+                </td>
+                <td style="vertical-align: top;">
+                    <table><tr>
+                            <td style="width: 400px; height: 400px; vertical-align: top;">
+                                <div style="border-bottom: 1px solid #999999; text-align: center"><h4 style="color: #5e5e5e">selected faces</h4></div>
+
+                                <ul id="selected-faces-ul" class="face-ul">
+
+                                </ul>
+                            </td></tr>
+                    </table>
+                </td>
+            </tr></table>
+
+
+        <script type="text/javascript" src="jquery-1.10.2.min.js"></script>
+        <script type="text/javascript">
+
+            var pics = []
+            var i = 0
+
+            $(document).ready(function(e)
+            {
+                $(document).on("dblclick", ".face-unselected", function(e)
+                {
+                    $(this).animate({left:'+=390px'})
+                    $(this).addClass("face-selected")
+                    $(this).removeClass("face-unselected")
+                    pics.push($(this).attr("src"))
+                    i++
+                })
+
+                $(document).on("dblclick", ".face-selected", function(e)
+                {
+                    $(this).animate({left: "-=390px"})
+                    $(this).addClass("face-unselected")
+                    $(this).removeClass("face-selected")
+                    var j = pics.indexOf($(this).attr("src"))
+                    pics.splice(j, 1)
+                    i--
+                })
+
+            })
+
+            function getPaths()
+            {
+               return pics
+            }
+
+            function addPaths(imgs, empty)
+            {
+                var trg = document.querySelector("#retrieved-faces-ul")
+                var html = ""
+                if(empty == 1)
+                {
+                    html += "<li><p>No faces detected in the photos</p></li>"
+                }
+                else
+                {
+                    for(var i in imgs)
+                    {
+                        html += "<li><img src='"+imgs[i]+"' height=auto width='150' class='img face-unselected' alt='image loading failed'></li>"
+                    }
+                }
+                trg.innerHTML = html
+
+            }
+
+        </script>
+    </body>
+</html>

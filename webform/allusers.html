@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>All Users</title>
+
+    <link type="text/css" rel="stylesheet" href="bootstrap.min.css">
+
+    <style type="text/css">
+        body
+        {
+            font-size: 10px !important;
+        }
+    </style>
+
+</head>
+<body>
+
+<table class="table table-striped table-bordered">
+<caption><h4>FaceX System Members</h4></caption>
+    <th><strong><center>Face</center></strong></th>
+    <th><strong><center>Names</center></strong></th>
+    <th><strong><center>ID Number</center></strong></th>
+    <th><strong><center>Department</center></strong></th>
+    <th><strong><center>Position</center></strong></th>
+    <th><center><span class="glyphicon glyphicon-question-sign"></span></center></th>
+</table>
+
+<script type="text/javascript" src="jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+
+    $(document).ready(function()
+    {
+        $("a").on("click", function(e)
+            {
+                var choice = window.confirm("Are you sure about deleting this user ?")
+                if(!choice)
+                {
+                    e.preventDefault()
+                    return false
+                }
+
+            })
+    })
+
+    function add_table_contents(data)
+    {
+        $(document).ready(function()
+        {
+            $("table").append(data)
+        })
+    }
+
+    function hide_deleted(id)
+    {
+        $(document).ready(function()
+        {
+            $("#"+id).slideUp()
+        })
+    }
+
+    function baah()
+    {
+        alert("boo")
+    }
+
+</script>
+
+</body>
+</html>

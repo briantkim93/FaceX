@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+
+    <style type="text/css">
+        img{
+        display:none;
+        }
+    </style>
+</head>
+<body>
+
+<p class="text text-info">No photo loaded</p>
+<img src="" width="95%" height=auto alt="No photo loaded">
+
+<script type="text/javascript" src="jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+
+    function set_imgpath(path)
+    {
+        $(document).ready(function()
+        {
+            $("p").slideUp()
+            $("img").attr("src", path)
+            $("img").show()
+        })
+    }
+
+
+
+</script>
+
+</body>
+</html>

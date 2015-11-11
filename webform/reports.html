@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>All Users</title>
+
+    <link type="text/css" rel="stylesheet" href="bootstrap.min.css">
+
+    <style type="text/css">
+        body
+        {
+            font-size: 10px !important;
+        }
+    </style>
+
+</head>
+<body>
+
+<table class="table table-striped table-bordered">
+<caption><h4>FaceX Access Report: 7/9/2015 - 10/11/2015</h4></caption>
+    <th><strong><center>Date</center></strong></th>
+    <th><strong><center>ID Number</center></strong></th>
+    <th><strong><center>Access <span class="glyphicon glyphicon-question-sign"></span></center></strong></th>
+</table>
+
+<script type="text/javascript" src="jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+
+    function set_caption(caption)
+    {
+        $(document).ready(function()
+        {
+            $("caption").html("<h4>" + caption + "</h4>")
+        })
+
+    }
+
+    function add_table_contents(data)
+    {
+        $(document).ready(function()
+        {
+            $("table").append(data)
+        })
+    }
+
+</script>
+
+</body>
+</html>
